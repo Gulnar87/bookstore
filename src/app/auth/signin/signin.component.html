@@ -1,0 +1,39 @@
+<div class="row">
+	<div class="col-9 col-sm-7 col-md-7 col-lg-5 offset-sm-3 offset-2">
+		<div class="card">
+		   <a class="navbar-brand offset-3" href="#">
+           <img src="assets/books-stack1.png" width="40" height="40" alt="logo">
+           book<span>S</span>tore
+           </a>
+			<h3> Log In to Your Account</h3>
+		    <form (ngSubmit)="onSignup(f)" #f="ngForm">
+                <div class="form-group">
+            	    <label for="email"> <i class="fas fa-at"></i> Email </label> 
+            	    <input type="email" class="form-control" id="email"  placeholder= "Enter email" ngModel name="email" required email #email="ngModel"> 
+            	<small class="form-text text-muted" *ngIf="!email.valid && email.touched"> Please provide a valid email address!</small>
+                </div>
+                <div class="form-group"> 
+            	    <label for="password"> <i class="fas fa-unlock"></i> Password</label> <small class="float-right">  <a href="#"> Forgot password? </a></small>
+            	     <input type="password" class="form-control" id="password" placeholder="At least 6 characters" name="password" ngModel required #password="ngModel" pattern="^.{6,}$"> 
+            	   <!--   <small class="form-text text-muted" *ngIf="!password.valid && password.touched"> Please provide a  password!</small> -->
+            	    <!--  <small class="form-text text-muted" *ngIf="password.errors['pattern']"> Please provide a valid password of 6 characters! </small> -->
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="check">
+                    <label class="form-check-label" for="check"> Remember password</label>
+                </div>
+                <button type="submit" class="btn btn-warning btn-block" [disabled]="!f.valid"> Log In </button>   
+                
+		    </form>
+	        <hr>
+		    <p> Don't have an account?  
+			    <a routerLink="/signup"> Sign Up </a>
+		     </p>
+         </div>
+     </div>
+</div>
+
+
+
+
+

@@ -1,0 +1,29 @@
+  <a 
+     class="card" [routerLink]="[index]">
+	   <span class="img">	<img [src]="book.imagePath" alt="{{ book.title}}" style="display: block; width: 55%;">
+		 	</span>
+		        <div class="card-body">
+			      <h5 class="card-title text-center"> {{ book.title }}</h5>
+			      <h5 class="card-title text-center"> {{ book.author }}</h5>
+			       <p class="card-text-price float-right"> Paperback: <span> {{ book.price }} $ </span> </p>
+			    
+
+	            </div>   
+
+     <div class="overlay">
+	              <p class="card-text"> {{ book.description | shorten }}</p> <!--  <button 
+			type="button" 
+			class="btn btn-warning addtoCart" (click)="onAddToShoppingList()">
+			Add to Cart
+			<i class="fas fa-shopping-cart"></i>
+			</button> --></div>
+
+</a> 
+
+
+
+
+
+
+
+

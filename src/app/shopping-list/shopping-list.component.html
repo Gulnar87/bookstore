@@ -1,0 +1,43 @@
+
+
+
+
+
+
+<div class="row" >
+
+                <!-- <div class="item" > -->
+                    <div class="col-md-3" *ngFor="let book of books">
+                        <mat-card class="example-card">
+                            
+
+                           <img mat-card-image [src]="book.imagePath" alt="{{ book.title}}"> 
+
+
+                            <mat-card-content>
+                                <div class="card-body">
+                                    <h5 class="card-title text-center"> {{ book.title }} </h5>
+                                     <h5 class="card-title text-center"> {{ book.author }}</h5>
+                                     <p class="card-text content" [ngClass]="{less: !isCollapsed}"> {{ book.description }}</p> 
+	<div class="text-center">  
+			  <button class="btn btn-outline-secondary btn-sm" 
+                type="button" aria-controls="collapseExample" 
+                (click)="onToggle()"> {{ !isCollapsed? 'Read more' : 'Read less' }}
+                 <span *ngIf="!isCollapsed"><span class="fas fa-caret-down"></span></span>
+                 <span *ngIf="isCollapsed"><span class="fas fa-caret-up"></span></span> 
+              </button>
+            </div>
+              
+                                </div>
+                            </mat-card-content>
+
+
+                        </mat-card>
+                    </div>
+
+       <!--         </div> -->
+
+     
+</div>
+
+

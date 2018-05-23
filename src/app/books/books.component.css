@@ -1,0 +1,29 @@
+.book-list {
+    margin-right: 50px;
+   
+  margin-left: 50px;
+  margin-top: 50px;
+}
+
+.jumbotron {
+	background-color: #383744;
+	color: #fff;
+	padding: 30px;
+
+
+}
+
+.jum-text h1 {
+	padding-top: 20px;
+}
+
+img {
+	width: 200px;
+	border-radius: 30px;
+	
+}
+
+.container {
+	padding-right: 0;
+	padding-left: -10px;
+}

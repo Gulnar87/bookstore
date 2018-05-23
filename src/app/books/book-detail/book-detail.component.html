@@ -1,0 +1,46 @@
+	
+
+
+<div class="row">
+	<div class="col-12">
+		<div class="row book-row">
+			<div class="col-md-3 col-4 pic">  <img [src]="book.imagePath"
+		        alt="{{ book.imagePath }}" 
+		        class="img-fluid" style="max-height: 300px;">  
+		    </div>
+		    <div class="col-md-9 col-8">
+				<div class="description"> 
+					<h4 > {{ book.title }} </h4>
+		            <h4 > {{ book.author }} </h4>
+		            <p class="content" [ngClass]="{less: !isCollapsed}" > {{ book.description }}</p>	
+		            	<div class="text-center">  <button class="btn btn-outline-secondary btn-sm" 
+                type="button" aria-controls="collapseExample" 
+                (click)="this.isCollapsed = !this.isCollapsed;" > {{ !isCollapsed? 'Read more' : 'Read less' }}
+		     <span *ngIf="!isCollapsed"><span class="fas fa-caret-down"></span></span>
+             <span *ngIf="isCollapsed"><span class="fas fa-caret-up"></span></span>
+
+
+                 </button> </div>
+		        </div>
+		   </div>
+		</div>
+	</div>
+</div>
+<div class="row book-row" >
+	<div class="col-12">
+		<!-- <div class="btn-group"> -->
+			<button 
+			type="button" 
+			class="btn btn-warning addtoCart" (click)="onAddToShoppingList()">
+			Add to Cart
+			<i class="fas fa-shopping-cart"></i>
+			</button>
+		<!-- 	<ul class="dropdown-menu"> -->
+		<!-- 		<li><a style="cursor: pointer;"> To Shopping List  (click)="onAddToShoppingList()"</a></li> -->
+			   <!--  <li><a style="cursor: pointer;"> Edit Book </a></li>
+				<li><a style="cursor: pointer;"> Delete Book </a></li> -->
+		<!-- 	</ul> -->
+	<!-- 	</div>	 -->
+	</div>
+</div>
+
