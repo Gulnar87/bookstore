@@ -1,32 +1,11 @@
-// import { Component, OnInit } from '@angular/core';
-// import { Book } from '../../shared/book.model';
-// import { BookService } from '../book.service';
-
-
-// @Component({
-//   selector: 'app-book-list',
-//   templateUrl: './book-list.component.html',
-//   styleUrls: ['./book-list.component.css']
-// })
-// export class BookListComponent implements OnInit {
-//   books: Book[];
-
-//   constructor(private bookService: BookService) { }
-
-//   ngOnInit() {
-//     this.books = this.bookService.getBooks();
-//   }
-
-// }
-
-
-
-import { Component, ViewChild, OnInit } from '@angular/core';
-
-import { SwiperComponent, SwiperDirective, SwiperConfigInterface,
-  SwiperScrollbarInterface, SwiperPaginationInterface } from 'ngx-swiper-wrapper';
+import { Component, ViewChild, OnInit, OnDestroy, Input } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { Book } from '../../shared/book.model';
 import { BookService } from '../book.service';
+import { FilterService } from '../../shared/filter-service';
+
+
 
 @Component({
   selector: 'app-book-list',
@@ -36,69 +15,37 @@ import { BookService } from '../book.service';
 
 
 })
-export class BookListComponent implements OnInit  {
+export class BookListComponent implements OnInit, OnDestroy  {
 
-    @ViewChild(SwiperComponent) componentRef?: SwiperComponent;
-@ViewChild(SwiperDirective) directiveRef?: SwiperDirective;
 
-	  books: Book[];
+ subscription: Subscription;
+ public books: Book[];
 
-  constructor(private bookService: BookService) { }
+
+  constructor(private bookService: BookService,
+              private router: Router,
+              private route: ActivatedRoute,
+              public filterServ: FilterService,
+             
+              
+              ) { }
 
   ngOnInit() {
-    this.books = this.bookService.getBooks();
+  	this.subscription = this.bookService.booksChanged
+  	.subscribe(
+        (books: Book[]) => {
+          this.books = books;
+        }
+      );
+      
+      this.books = this.bookService.getBooks();
+ 
+
+  }
+
+  ngOnDestroy(){
+    this.subscription.unsubscribe();
   }
  
- 
-  public config: SwiperConfigInterface = {
-    direction: 'horizontal',
-    slidesPerView: 4,
-     // loop: true,
-    keyboard: true,
-    mousewheel: true,
-    scrollbar: false,
-    navigation: true,
-    pagination: true,
-    spaceBetween: 15,
-    grabCursor: true,
-    centeredSlides: false,
-
-     breakpoints: {
-        1024: {
-          slidesPerView: 3,
-          spaceBetween: 20,
-        },
-        768: {
-          slidesPerView: 3,
-          spaceBetween: 20,
-        },
-        640: {
-          slidesPerView: 2,
-          spaceBetween: 20,
-        },
-        320: {
-          slidesPerView: 1,
-          spaceBetween: 10,
-        }
-      }
-
-  };
-
-
-  private pagination: SwiperPaginationInterface = {
-    el: '.swiper-pagination', 
-    clickable: true,
-    hideOnClick: false,
-
-     
-  };
-
-    private navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-        
-      }; 
-
-
  
 }

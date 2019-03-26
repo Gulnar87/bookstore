@@ -1,31 +1,41 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { BooksComponent } from './books/books.component';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
+import { HomeComponent } from './core/home/home.component';
+import { AuthGuard } from './auth/auth-guard.service';
+import { ErrorPageComponent } from '../app/error-page/error-page.component';
 import { BookDetailComponent } from './books/book-detail/book-detail.component';
-import { BookListComponent } from './books/book-list/book-list.component';
-import { HomeComponent } from './home/home.component';
-import { SignupComponent } from './auth/signup/signup.component';
-import { SigninComponent } from './auth/signin/signin.component';
+import { BookEditComponent } from './books/book-edit/book-edit.component';
 
 
 const appRoutes: Routes = [
-{path: '', component: HomeComponent, pathMatch: 'full'},
-{path: 'books', component: BooksComponent, children: [
-   // {path: ':id', component: BookDetailComponent }
-   
-   ]},
-    {path: 'books/:id', component: BookDetailComponent },
-{path: 'shopping-list', component: ShoppingListComponent },
-{path: 'signup', component: SignupComponent },
-{path: 'signin', component: SigninComponent }
+  {path: '', component: HomeComponent },
+
+  // { path: 'books', loadChildren: './books/books.module#BooksModule'},
+  {path: 'shopping-list', component: ShoppingListComponent },
+  // { path: 'shopping-list/:id', component: BookDetailComponent },
+
+  
+
+   // { path: ':id', component: BookDetailComponent },
+   // { path: ':id/edit', component: BookEditComponent, canActivate: [AuthGuard] },
+
+ 
+  { path: 'not-found', component: ErrorPageComponent, data: {message: 'Page not found!'} },
+  { path: '**', redirectTo: '/not-found' }
+
 ];
 
 @NgModule({
 	imports: [
-	RouterModule.forRoot(appRoutes)
+	RouterModule.forRoot(appRoutes),
+	
 	],
-	exports: [RouterModule]
+	exports: [RouterModule],
+
+  providers: [
+      AuthGuard
+  ]
 
 })
 export class AppRoutingModule {

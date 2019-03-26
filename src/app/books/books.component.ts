@@ -10,13 +10,10 @@ import { Book } from '../shared/book.model';
 })
 export class BooksComponent implements OnInit {
   
-
-
   constructor(private bookService: BookService) { }
 
   ngOnInit() {
  
-
   }
 
 }

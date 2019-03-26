@@ -1,26 +1,23 @@
 .card {
-
- height: 350px;
- /* margin-top: 10%;*/
+  margin-top: 5%;
   margin-bottom: 5%;
-  padding: 0;
   box-shadow: 0px 3px 10px #666;
   background: #fff;
   border-radius: 2px;
   overflow: hidden;
   opacity: 1;
- 
   transition: .5s ease;
-
   backface-visibility: hidden;
- /* height: auto;
-  width: 100%;*/
+  height: auto;
+  width: 100%;
+/*  height: auto;*/
   position: relative;
 /*z-index: 1;*/
 
+}
 
-  /* box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);*/
+.red {
+  color: red;
 }
 
 .card:hover {
@@ -29,28 +26,23 @@
 
 img {
 	 margin:  0 auto;
+   padding-top: 13%;
 }
 
-.img {
-	padding-top: 20px;
-}
+
 
  .card:link, .card:visited{
-
    text-decoration: none;
    color: black;
  }
 
  .card:hover {
- 
-   text-decoration: none;
+  text-decoration: none;
 }
 
 
 .card-title {
 	font-size: 13px;
-
-
 }
 
 .card-text {
@@ -61,7 +53,7 @@ img {
 
 
 
-.overlay {
+/*.overlay {
   transition: .5s ease;
   bottom: 0px;
   left: 0px;
@@ -85,17 +77,109 @@ img {
    transform: scale(1);
 
  
-}
+}*/
 
 .card-text-price {
   font-size: 13px;
 }
 
 .card-text-price  span {
-  font-size: 20px;
-  color: #494784;
+  font-size: 16px;
+  color: #ff3547;
+
+}
+
+.rating {
+position: relative;
+
+}
+   
+#rate {
+ position: absolute;
+/* bottom: 14px;
+ right: 19px;*/
+  bottom: 25%;
+ right: 12%;
+  /* top: 50%;
+  left: 40%;*/
+/*  font-size: 18px;*/
+
+}
+
+/********** Extra Large devices only **********/
+@media (min-width: 1200px) {
+
+
 }
 
 
 
+/********** Large devices only **********/
+@media (min-width: 992px) and (max-width: 1199px) {
+
+#rate {
+     right: 17%;
+}
+
+
+
+}
+     
+
+
+
+/********** Medium devices only **********/
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+#rate {
+     right: 18%;
+}
+
+
+
+}
+
+
+
+/********** Small devices only **********/
+@media (min-width: 576px) and (max-width: 767px) {
+
+  #rate {
+     right: 18%;
+}
+
+.card {
+/*   margin-right: 60px;
+  margin-left: 60px;*/
+}
+
+}
+
+
+
+/********** Extra Small Devices Only **********/
+@media (min-width: 480px) and  (max-width: 575px) {
+   #rate {
+     right: 30%;
+}
+
+.card {
+
+margin: 30px auto;
+width: 300px;
+height: auto;
+}
+
+}
+
+/********** Super extra small devices Only :-)  **********/
+@media (min-width: 320px) and (max-width: 479px) {
+  .card {
+
+margin: 30px auto;
+width: 250px;
+height: auto;
+}
+}
 

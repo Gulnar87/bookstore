@@ -10,15 +10,18 @@ input.ng-invalid.ng-touched {
 	border: 1px solid #d87d15;
 }
 
-h3 {
+
+.login-title {
   padding-bottom: 10px;
   padding-top: 10px;
+  font-size: 40px;
 }
 
 .navbar-brand {
    font-family: 'Source Serif Pro', serif;
    font-size: 30px;
    color: #494784;   
+     margin: 20px auto; 
 }
 
 .navbar-brand span {
@@ -32,3 +35,84 @@ h3 {
 label {
  font-weight: 400;
 }
+
+label span {
+  color: red;
+}
+
+
+.card-col{
+  margin: 20px auto;
+
+}
+
+ /********** Extra Large devices only **********/
+@media (min-width: 1200px) {
+
+
+}
+
+
+
+/********** Large devices only **********/
+@media (min-width: 992px) and (max-width: 1199px) {
+
+
+
+}
+     
+
+
+
+/********** Medium devices only **********/
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+
+
+
+
+}
+
+
+
+/********** Small devices only **********/
+@media (min-width: 576px) and (max-width: 767px) {
+
+
+
+}
+
+
+
+/********** Extra Small Devices Only **********/
+@media (min-width: 480px) and  (max-width: 575px) {
+
+.card {
+  padding: 60px;
+}
+
+}
+
+/********** Super extra small devices Only :-)  **********/
+@media (min-width: 320px) and (max-width: 479px) {
+
+
+
+
+.card {
+  padding: 30px;
+}
+
+.login-title {
+
+  font-size: 30px;
+}
+
+
+
+}
+
+
+
+
