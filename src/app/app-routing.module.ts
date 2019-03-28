@@ -9,15 +9,17 @@ import { BookEditComponent } from './books/book-edit/book-edit.component';
 
 
 const appRoutes: Routes = [
-  {path: '', component: HomeComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path: 'home', component: HomeComponent },
+  { path: 'home/:id', component: BookDetailComponent},
 
   // { path: 'books', loadChildren: './books/books.module#BooksModule'},
   {path: 'shopping-list', component: ShoppingListComponent },
-  // { path: 'shopping-list/:id', component: BookDetailComponent },
+  { path: 'shopping-list/:id', component: BookDetailComponent },
 
   
 
-   // { path: ':id', component: BookDetailComponent },
+
    // { path: ':id/edit', component: BookEditComponent, canActivate: [AuthGuard] },
 
  

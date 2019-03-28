@@ -48,8 +48,6 @@ export class BookDetailComponent implements OnInit {
 
             this.book = this.bookService.getBook(this.id);
                  // this.book = this.slService.getBook(this.id);
-
-
       });
 
 
